@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+
+        <ul>
+            <div class="left">
+                <li><a href="#library" class="library">Library System</a></li>
+            </div>
+            
+            <li><a href="#book" class="books active ">Books</a></li>
+            <li><a href="#register" class="register active ">Register</a></li>
+            <li><a href="#contact" class="contact">Contact</a></li>
+            <li><a href="#logout" class="logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="table">
+        <table id="book">
+            <caption>
+                <h3>Books</h3>
+            </caption>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Availability</th>
+            </tr>
+
+            <tr>
+                <td rowspan="1">1</td>
+                <td><a href="">Book Title 1</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2000</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:250</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN: 123-4567890123</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 1</td>
+                <td>Genre 1</td>
+                <td>Available</td>
+            </tr>
+
+            <tr>
+                <td rowspan="1">2</td>
+                <td><a href="">Book Title 2</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2005</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:300</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN: 123-4567890123</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 2</td>
+                <td>Genre 2</td>
+                <td>Not Available</td>
+            </tr>
+
+            <tr>
+                <td rowspan="1">3</td>
+                <td><a href="">Book Title 3</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2010</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:350</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN: 123-4567890123</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 3</td>
+                <td>Genre 3</td>
+                <td>Available</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="register" class="container">
+        <form class="form" onsubmit="return myfun()">
+            <h1>Register</h1>
+            <hr>
+            <label for="fname"><b>First Name:</b></label>
+            <input type="text" name="fname" id="fname" value="Name" required>
+
+            <label for="lname"><b>Last Name:</b></label>
+            <input type="text" name="lname" id="lname" value="Family Name" required>
+
+            <label for="dob"><b>Date of Birth:</b></label>
+            <input type="date" value="20-10-1999" name="dob" id="dob"><br>
+
+            <label for="age"><b>Age:</b></label>
+            <input type="number" name="age" value="18" id="age" min="5" max="100">
+
+            <label for="email"><b>Email:</b></label>
+            <input type="email" value="xyz@gmail.com" name="email" id="email" required>
+
+            <label for="psw"><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" value="1111" name="psw" id="psw">
+            <span id="psw-match"></span><br>
+
+            <label for="psw-repeat"><b>Confirm Password:</b></label>
+            <input type="password" placeholder="Confirm Password" value="1111" name="psw-repeat" id="psw-repeat">
+
+            <span id="psw-match2"></span>
+
+            <hr>
+
+
+
+            <button type="submit" class="registerbtn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function myfun() {
+            var password = document.getElementById("psw").value;
+            var passwordMatch = document.getElementById("psw-repeat").value;
+            if (password == "") {
+                document.getElementById("psw-match").innerHTML = "**please fill password currectly";
+                return false;
+            } else if (passwordMatch == "") {
+                document.getElementById("psw-match").innerHTML = "";
+                document.getElementById("psw-match2").innerHTML = "**please fill password currectly";
+                return false;
+            }
+            else if (password != passwordMatch) {
+                document.getElementById("psw-match2").innerHTML = "**Password does not match";
+                return false;
+            } else if (password == passwordMatch) {
+                document.getElementById("psw-match2").innerHTML = "Password Matched";
+                document.getElementById("psw-match").innerHTML = "";
+                return false;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
